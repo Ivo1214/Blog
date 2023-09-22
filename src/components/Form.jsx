@@ -40,7 +40,6 @@ const Form = () => {
                 <input id='text' type='text'></input>
                 <input type='submit' value='Cargar'></input>
             </form>
-            <Card/>
         </>
     );
 }

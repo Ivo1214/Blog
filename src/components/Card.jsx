@@ -1,17 +1,16 @@
 import React from 'react';
 import Posteos from './Posteos';
-
-
-function leer(id) {
-    alert(`LEER posteo ID ${id}`);
-}
-
-function modificar (id){
-    alert(`MODIFICAR posteo ID ${id}`);
-}
-
+import { Outlet, useNavigate} from 'react-router-dom';
 
 const Card = () => {
+    const navigate = useNavigate();
+
+    function leer(id) {
+        navigate(`/posteos/${id}`);
+    }
+    function modificar (id){
+        alert(`MODIFICAR posteo ID ${id}`);
+    }
 
     return (<div>
         {
@@ -23,6 +22,7 @@ const Card = () => {
                 </div>
             ))
         }
+        <Outlet></Outlet>
     </div>)
 };
 
