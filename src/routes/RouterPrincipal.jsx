@@ -5,6 +5,7 @@ import Home from '../components/Home';
 import Form from '../components/Form';
 import Card from '../components/Card';
 import LeerPosteo from '../components/LeerPosteo';
+import Login from '../components/Login';
 
 
 const RouterPrincipal = () => {
@@ -17,6 +18,7 @@ const RouterPrincipal = () => {
                     <Route path='/posteos/:id' element={<LeerPosteo></LeerPosteo>}/>
                 </Route>
                 <Route path='/crear' element={<Form></Form>}/>
+                <Route path='/login' element={<Login></Login>}/>
                 {/* <Route path='' element={<></>}/> */}
             </Routes>
         </BrowserRouter>
