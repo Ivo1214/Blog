@@ -3,25 +3,16 @@ import RouterPrincipal from './routes/RouterPrincipal';
 import { useState, useEffect } from 'react';
 
 // Contexts
-import {Logeado} from './context/Logeado';
+import {Logeado, initAutenticacion, initUser} from './context/Logeado';
 
 function App() {
-  let [currentUser, setCurrentUser] = useState({name:'', email:''});
+  let [currentUser, setCurrentUser] = useState(initUser());
+  let [auth, setAuth] = useState(initAutenticacion());
+
   
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser){
-      setCurrentUser(storedUser);
-    }
-  },[])
-
-  useEffect(() => {
-    localStorage.setItem("user", currentUser);
-  }, [currentUser])
-
   return (
     <div className="App">
-      <Logeado.Provider value={{currentUser, setCurrentUser}}>
+      <Logeado.Provider value={{currentUser, setCurrentUser, auth, setAuth}}>
         <header className="App-header">
           <RouterPrincipal/>
         </header>

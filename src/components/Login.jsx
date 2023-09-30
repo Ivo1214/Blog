@@ -10,8 +10,8 @@ const Login = () => {
         e.preventDefault();
 
         const obj = {
-            name: e.target.nombre.value,
-            email: e.target.email.value
+            user: e.target.nombre.value,
+            auth: true
         };
         setCurrentUser(obj);
         navigate("/");

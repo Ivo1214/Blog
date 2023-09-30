@@ -5,9 +5,9 @@ const Home = () => {
     const {currentUser} = useContext(Logeado);
     return (
         <>
-            {currentUser.name && currentUser.name !== "" ? (
+            {currentUser.auth === true ? (
                 <>
-                    <h1>Bienvenido {currentUser.name}</h1>
+                    <h1>Bienvenido {currentUser.user}</h1>
                 </>
             ) : (
                 <>
