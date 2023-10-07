@@ -1,24 +1,37 @@
-import React from 'react';
-import Posteos from './Posteos';
+import React,{useState, useEffect} from 'react';
+// import Posteos from './Posteos';
 import { Outlet, useNavigate} from 'react-router-dom';
+import { apiPosteos } from '../api/apiPosteos';
 
 const Card = () => {
     const navigate = useNavigate();
+    
+    const [posteos, setPosteos] = useState([]);
+    useEffect(() =>{
+        apiPosteos.get('ivo')
+        .then((response) => {
+            setPosteos(response);
+        })
+        .catch((error) => {
+            console.log(error.message);
+        })
+    },
+     []);
 
-    function leer(id) {
-        navigate(`/posteos/${id}`);
+    function leer(id, usuario) {
+        navigate(`/posteos/${usuario}/detail/${id}`);
     }
-    function modificar (id){
-        alert(`MODIFICAR posteo ID ${id}`);
+    function modificar (id, usuario){
+        navigate(`/posteos/${usuario}/update/${id}`);
     }
 
     return (<div>
         {
-            Posteos.map((post)=>(
+            posteos.map((post)=>(
                 <div key={post.id}>
                     <h1>{post.titulo}</h1>
-                    <button onClick={() => leer(post.id)}>LEER</button>
-                    <button onClick={() => modificar(post.id)}>MODIFICAR</button>
+                    <button onClick={() => leer(post.id, post.usuario)}>LEER</button>
+                    <button onClick={() => modificar(post.id, post.usuario)}>MODIFICAR</button>
                 </div>
             ))
         }

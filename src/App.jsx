@@ -8,11 +8,11 @@ import {Logeado, initAutenticacion, initUser} from './context/Logeado';
 function App() {
   let [currentUser, setCurrentUser] = useState(initUser());
   let [auth, setAuth] = useState(initAutenticacion());
-  useEffect(()=>{
-    setCurrentUser(sessionStorage.getItem('user'));
-    setAuth(sessionStorage.getItem('isAuthenticated'));
-    console.log("Datos desde App.jsx: " + currentUser + " " + auth);
-  },[])
+  // useEffect(()=>{
+  //   setCurrentUser(sessionStorage.getItem('user'));
+  //   setAuth(sessionStorage.getItem('isAuthenticated'));
+  //   console.log("Datos desde App.jsx: " + currentUser + " " + auth);
+  // },[])
 
   
   return (
