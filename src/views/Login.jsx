@@ -19,8 +19,8 @@ const Login = () => {
             auth: true
           };
           setCurrentUser(obj);
-          sessionStorage.setItem('isAuthenticated', true);
-          sessionStorage.setItem('user', name);
+          localStorage.setItem('isAuthenticated', true);
+          localStorage.setItem('user', name);
           navigate("/");
         })
         .catch((error)=>{

@@ -1,12 +1,13 @@
 import React from 'react';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import Nav from '../views/nav/Nav';
-import Home from '../components/Home';
-import Form from '../components/Form';
-import Card from '../components/Card';
+import Home from '../views/Home';
+import CrearPosteo from '../views/CrearPosteo';
+import ListaPosteos from '../views/ListaPosteos';
 import LeerPosteo from '../components/LeerPosteo';
-import Login from '../components/Login';
+import Login from '../views/Login';
 import ModificarPosteo from '../components/ModificarPosteo';
+import MapeoPosteos from '../components/MapeoPosteos';
 
 
 const RouterPrincipal = () => {
@@ -15,11 +16,11 @@ const RouterPrincipal = () => {
             <Nav></Nav>
             <Routes>
                 <Route path='/' element={<Home></Home>}/>
-                <Route path='/posteos' element={<Card></Card>}>
+                <Route path='/posteos' element={<ListaPosteos></ListaPosteos>}>
                     <Route path='/posteos/:usuario/detail/:id' element={<LeerPosteo></LeerPosteo>}/>
                     <Route path='/posteos/:usuario/update/:id' element={<ModificarPosteo></ModificarPosteo>}></Route>
                 </Route>
-                <Route path='/crear' element={<Form></Form>}/>
+                <Route path='/crear' element={<CrearPosteo></CrearPosteo>}/>
                 <Route path='/login' element={<Login></Login>}/>
                 {/* <Route path='' element={<></>}/> */}
             </Routes>

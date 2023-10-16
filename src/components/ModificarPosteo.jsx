@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { apiPosteos } from '../api/apiPosteos';
 import { useNavigate} from 'react-router-dom';
@@ -7,10 +7,6 @@ const ModificarPosteo = () => {
     const {id} = useParams();
     const {usuario} = useParams();
     const navigate = useNavigate();
-
-    // useEffect(() => {
-        
-    // });
 
     function HandleSubmit (e){
         e.preventDefault();

@@ -1,14 +1,13 @@
 import React,{useState, useEffect} from 'react';
-// import Posteos from './Posteos';
 import { Outlet, useNavigate} from 'react-router-dom';
 import { apiPosteos } from '../api/apiPosteos';
 
-const Card = () => {
+const Posteos = (props) => {
     const navigate = useNavigate();
     
     const [posteos, setPosteos] = useState([]);
     useEffect(() =>{
-        apiPosteos.get('ivo')
+        apiPosteos.get(props.nombre)
         .then((response) => {
             setPosteos(response);
         })
@@ -25,7 +24,8 @@ const Card = () => {
         navigate(`/posteos/${usuario}/update/${id}`);
     }
 
-    return (<div>
+    return (
+    <div>
         {
             posteos.map((post)=>(
                 <div key={post.id}>
@@ -35,8 +35,8 @@ const Card = () => {
                 </div>
             ))
         }
-        <Outlet></Outlet>
+        {/* <Outlet></Outlet> */}
     </div>)
 };
 
-export default Card;
+export default Posteos;
