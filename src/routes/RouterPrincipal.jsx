@@ -7,7 +7,6 @@ import ListaPosteos from '../views/ListaPosteos';
 import LeerPosteo from '../components/LeerPosteo';
 import Login from '../views/Login';
 import ModificarPosteo from '../components/ModificarPosteo';
-import MapeoPosteos from '../components/MapeoPosteos';
 
 
 const RouterPrincipal = () => {
@@ -18,7 +17,6 @@ const RouterPrincipal = () => {
                 <Route path='/' element={<Home></Home>}/>
                 <Route path='/posteos' element={<ListaPosteos></ListaPosteos>}>
                     <Route path='/posteos/:usuario/detail/:id' element={<LeerPosteo></LeerPosteo>}/>
-                    <Route path='/posteos/:usuario/update/:id' element={<ModificarPosteo></ModificarPosteo>}></Route>
                 </Route>
                 <Route path='/crear' element={<CrearPosteo></CrearPosteo>}/>
                 <Route path='/login' element={<Login></Login>}/>
