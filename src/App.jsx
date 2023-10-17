@@ -9,25 +9,28 @@ import {Logeado, initAutenticacion, initUser} from './context/Logeado';
 function App() {
   let [currentUser, setCurrentUser] = useState(initUser());
   let [auth, setAuth] = useState(initAutenticacion());
-  // useEffect(()=>{
-  //   if (sessionStorage.getItem('user')){
-  //     const navigate = useNavigate();
-  //     setCurrentUser(sessionStorage.getItem('user'));
-  //     setAuth(sessionStorage.getItem('isAuthenticated'));
-  //     console.log("Datos desde App.jsx: " + currentUser + " " + auth);
-  //     navigate("/");
-  //   }
-  // });
+  useEffect(()=>{
+    if (localStorage.getItem('user')){
+      let obj = {
+        user: localStorage.getItem('user'),
+        auth: localStorage.getItem('isAuthenticated')
+      };
+      setCurrentUser(obj);
+    }
+  },[]);
 
   
   return (
-    <div className="App">
-      <Logeado.Provider value={{currentUser, setCurrentUser, auth, setAuth}}>
-        <header className="App-header">
-          <RouterPrincipal/>
-        </header>
-      </Logeado.Provider>
-    </div>
+    <>
+      {/* {console.log(currentUser)} */}
+      <div className="App">
+        <Logeado.Provider value={{currentUser, setCurrentUser, auth, setAuth}}>
+          <header className="App-header">
+            <RouterPrincipal/>
+          </header>
+        </Logeado.Provider>
+      </div>
+    </>
   )
 }
 

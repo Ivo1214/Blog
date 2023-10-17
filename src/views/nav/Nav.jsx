@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import {AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -52,6 +52,8 @@ function Nav() {
     switch (event.target.innerHTML) {
         case 'Logout':
             setCurrentUser({ user: "", auth: false });
+            localStorage.setItem('isAuthenticated', false);
+            localStorage.setItem('user', "");
             navigate("/");
             break;
         default:
@@ -63,6 +65,7 @@ function Nav() {
   return (
     <AppBar position="static">
       <Container maxWidth="sm">
+      {currentUser.auth === 'true'? (
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -100,7 +103,7 @@ function Nav() {
               ))}
             </Menu>
           </Box>
-          {currentUser.auth === true? (
+          
             <>
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {
@@ -146,15 +149,15 @@ function Nav() {
                 </Menu>
               </Box>
           </>
-          ):(
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-              Login
-            </Button>
-          )}
         </Toolbar>
+        ):(
+          <Button
+            onClick={handleCloseNavMenu}
+            sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+            Login
+          </Button>
+        )}
       </Container>
     </AppBar>
   );

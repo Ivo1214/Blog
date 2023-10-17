@@ -5,17 +5,16 @@ const defaultValue = {
     auth: false
 }
 
-export const Logeado = createContext({defaultValue});
-
+export let Logeado = createContext({defaultValue});
 
 export function initAutenticacion() {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
-    console.log(`autenticación almacenada: ${isAuthenticated}`)
+    // console.log(`autenticación almacenada: ${isAuthenticated}`)
     return Boolean(isAuthenticated);  // Forzar que el dato sea interpretado como true/false (boolean)
 }
   
 export function initUser() {
     const user = localStorage.getItem('user');
-    console.log(`user almacenado: ${user}`)
+    // console.log(`user almacenado: ${user}`)
     return String(user); // Forzar que el dato sea interpretado como string
 }
