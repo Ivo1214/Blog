@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext,useEffect} from 'react';
 import { Logeado } from '../context/Logeado';
 import { useNavigate } from 'react-router-dom';
 import {apiLogin} from '../api/apiLogin';
@@ -21,14 +21,17 @@ const Login = () => {
           setCurrentUser(obj);
           localStorage.setItem('isAuthenticated', true);
           localStorage.setItem('user', name);
-          navigate("/");
         })
         .catch((error)=>{
           alert(error.response.data.detail);
         });
-        
-        
     };
+
+    useEffect(() => {
+      if (currentUser.auth) {
+        navigate("/");
+      }
+    }, [currentUser, navigate]);
     return (
         <>
           <form onSubmit={HandleSubmit}>

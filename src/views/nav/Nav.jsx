@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Logeado } from '../../context/Logeado';
 
 const pages = ['Inicio', 'Posteos', 'Crear Posteo'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Logout'];
 
 function Nav() {
   const {currentUser, setCurrentUser} = useContext(Logeado);
@@ -57,6 +57,7 @@ function Nav() {
             navigate("/");
             break;
         default:
+            console.log("Error");
             break;
     }
     setAnchorElUser(null);
@@ -65,7 +66,7 @@ function Nav() {
   return (
     <AppBar position="static">
       <Container maxWidth="sm">
-      {currentUser.auth === 'true'? (
+      {/* {currentUser.auth === 'true'? ( */}
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -150,14 +151,14 @@ function Nav() {
               </Box>
           </>
         </Toolbar>
-        ):(
+        {/* ):(
           <Button
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: 'white', display: 'block' }}
             >
             Login
           </Button>
-        )}
+        )} */}
       </Container>
     </AppBar>
   );

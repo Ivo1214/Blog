@@ -5,15 +5,7 @@ const Home = () => {
     const {currentUser} = useContext(Logeado);
     return (
         <>
-            {currentUser.auth === 'true' ? (
-                <>
-                    <h1>Bienvenido {currentUser.user}</h1>
-                </>
-            ) : (
-                <>
-                    <h1>Logeate para acceder a los posteos</h1>
-                </>
-            )}
+            <h1>Bienvenido {currentUser.user}</h1>
         </>
     );
 };

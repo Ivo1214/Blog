@@ -13,9 +13,10 @@ function App() {
     if (localStorage.getItem('user')){
       let obj = {
         user: localStorage.getItem('user'),
-        auth: localStorage.getItem('isAuthenticated')
+        auth: Boolean(localStorage.getItem('isAuthenticated'))
       };
       setCurrentUser(obj);
+      setAuth(Boolean(localStorage.getItem('isAuthenticated')));
     }
   },[]);
 
