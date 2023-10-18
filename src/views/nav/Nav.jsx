@@ -37,9 +37,6 @@ function Nav() {
         case 'Crear Posteo':
             navigate("/crear");
             break;
-        case 'Login':
-            navigate("/login");
-            break;
         default:
             console.log("Error");
             break;
@@ -66,7 +63,6 @@ function Nav() {
   return (
     <AppBar position="static">
       <Container maxWidth="sm">
-      {/* {currentUser.auth === 'true'? ( */}
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -151,14 +147,6 @@ function Nav() {
               </Box>
           </>
         </Toolbar>
-        {/* ):(
-          <Button
-            onClick={handleCloseNavMenu}
-            sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-            Login
-          </Button>
-        )} */}
       </Container>
     </AppBar>
   );
