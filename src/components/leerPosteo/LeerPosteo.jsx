@@ -1,9 +1,11 @@
 import React, {useState,useEffect} from 'react';
 import { useParams,useNavigate } from 'react-router-dom';
-import { apiPosteos } from '../api/apiPosteos';
+import { apiPosteos } from '../../api/apiPosteos';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import ModificarPosteo from './ModificarPosteo';
+import ModificarPosteo from '../ModificarPosteos/ModificarPosteo';
+import Typography from '@mui/material/Typography';
+import styles from './leerPosteo.module.css';
 
 // Estilos del Modal
 const style = {
@@ -54,10 +56,10 @@ const handleClose = () => {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
             >
-            <Box sx={style}>
-                <h2>{datos.titulo}</h2>
-                <p>{datos.usuario}</p>
-                <p>{datos.texto}</p>
+            <Box className={styles.modal} sx={style}>
+                <Typography className={styles.titulo} variant="h3" component="div">{datos.titulo}</Typography>
+                <Typography className={styles.texto} variant="p" component="div">Autor: {datos.usuario}</Typography>
+                <Typography className={styles.texto} variant="p" component="div">{datos.texto}</Typography>
                 <ModificarPosteo/>
             </Box>
         </Modal>

@@ -1,12 +1,11 @@
 import React,{useContext} from 'react';
 import {Route, BrowserRouter, Routes, Navigate} from 'react-router-dom';
 import Nav from '../views/nav/Nav';
-import Home from '../views/Home';
-import CrearPosteo from '../views/CrearPosteo';
-import ListaPosteos from '../views/ListaPosteos';
-import LeerPosteo from '../components/LeerPosteo';
-import Login from '../views/Login';
-import ModificarPosteo from '../components/ModificarPosteo';
+import Home from '../views/home/Home';
+import CrearPosteo from '../views/crearPosteo/CrearPosteo';
+import ListaPosteos from '../views/listaPosteos/ListaPosteos';
+import LeerPosteo from '../components/leerPosteo/LeerPosteo';
+import Login from '../views/login/Login';
 import { Logeado } from '../context/Logeado';
 
 function RutaProtegida({ element, isAuth }) {

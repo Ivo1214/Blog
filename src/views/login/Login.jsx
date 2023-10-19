@@ -1,7 +1,9 @@
 import React, {useContext,useEffect} from 'react';
-import { Logeado } from '../context/Logeado';
+import { Logeado } from '../../context/Logeado';
 import { useNavigate } from 'react-router-dom';
-import {apiLogin} from '../api/apiLogin';
+import {apiLogin} from '../../api/apiLogin';
+import style from './login.module.css';
+import Typography from '@mui/material/Typography';
 
 const Login = () => {
     const { currentUser, setCurrentUser } = useContext(Logeado);
@@ -33,13 +35,14 @@ const Login = () => {
       }
     }, [currentUser, navigate]);
     return (
-        <>
-          <form onSubmit={HandleSubmit}>
+        <div className={style.container}>
+          <Typography className={style.titulo} variant="h2" component="h2">Ingrese sus credenciales</Typography>
+          <form className={style.formulario} onSubmit={HandleSubmit}>
             <input type="text" placeholder='Nombre:' name='name'/>
             <input type="password" placeholder='Contraseña:' name='password'/>
-            <input type="submit" value={"Enviar"}/>
+            <input className={style.entrar} type="submit" value={"Entrar"}/>
           </form>  
-        </>
+        </div>
     );
 };
 

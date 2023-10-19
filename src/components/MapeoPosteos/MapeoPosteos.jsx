@@ -1,12 +1,13 @@
 import React,{useState, useEffect} from 'react';
 import { Outlet, useNavigate} from 'react-router-dom';
-import { apiPosteos } from '../api/apiPosteos';
+import { apiPosteos } from '../../api/apiPosteos';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import style from './mapeoPosteos.module.css';
 
 
 const Posteos = (props) => {
@@ -39,21 +40,26 @@ const Posteos = (props) => {
 
 
     return (
-    <div>
+    <div className={style.container}>
         {
             posteos.map((post)=>(
                 <>
-                    <Card sx={{ minWidth: 275 }}>
+                    <Card sx={{ minWidth: 250 }}>
                         <CardContent key={post.id}>
-                            <Typography variant="h4" component="div">
+                            <Typography className={style.titulo} variant="h4" component="div">
                             {post.titulo}
                             </Typography>
-                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                            <Typography className={style.autor} sx={{ mb: 1.5 }} color="text.secondary">
                             Autor: {post.usuario}
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small" onClick={() => leer(post.id, post.usuario)}>Ver posteo</Button>
+                            <Button className={style.button}
+                                size="medium"
+                                variant="filled"
+                                onClick={() => leer(post.id, post.usuario)}>
+                                Ver posteo
+                            </Button>
                         </CardActions>
                     </Card>
                 </>

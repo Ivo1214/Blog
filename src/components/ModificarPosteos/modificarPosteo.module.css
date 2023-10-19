@@ -1,0 +1,56 @@
+
+.button{
+    color:rgb(116, 116, 226) !important;
+    background-color: rgb(220, 213, 213) !important;
+}
+.button:hover{
+    cursor: pointer;
+    margin-left: 5px;
+    transform:scale(1.1);
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    gap: 1vh;
+
+
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+    
+        .botonesFormulario{
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 1vw;
+    
+            .enviar{
+                color:#19a919;
+            }
+            .enviar:hover{
+                cursor: pointer;
+                margin-left: 5px;
+                transform:scale(1.1);
+            }
+            .eliminar{
+                color:rgb(211, 58, 58);
+            }
+            .eliminar:hover{
+                cursor: pointer;
+                transform:scale(1.1);
+            }
+        }
+    }
+
+    .buttonCancelar{
+        color:rgb(214, 118, 103);
+        background-color: rgb(220, 213, 213);
+    }
+    .buttonCancelar:hover{
+        cursor: pointer;
+        margin-left: 5px;
+        transform:scale(1.1);
+    }
+}

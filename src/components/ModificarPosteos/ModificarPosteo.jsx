@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { apiPosteos } from '../api/apiPosteos';
+import { apiPosteos } from '../../api/apiPosteos';
 import { useNavigate} from 'react-router-dom';
+import styles from './modificarPosteo.module.css';
 
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -61,25 +62,37 @@ const ModificarPosteo = () => {
     };
     return (
         <React.Fragment>
-        <Button onClick={handleOpen}>Modificar Posteo</Button>
+            <Button className={styles.button}
+                    size="medium"
+                    variant="filled"
+                    onClick={handleOpen}>
+                    Modificar Posteo
+            </Button>
             <Modal
                 open={open}
                 onClose={handleClose}
                 aria-labelledby="child-modal-title"
                 aria-describedby="child-modal-description"
             >
-                <Box sx={{ ...style, width: 200 }}>
-                <form onSubmit={HandleSubmit}>
-                    <input type="text" placeholder='Titulo:' name='tittle'/>
-                    <input type="text" placeholder='Texto:' name='text'/>
-                    <input type="submit" value={"Enviar"}/>
-                    <button onClick={HandleDelete} >Eliminar</button>
+                <Box className={styles.container} sx={{ ...style, width: 200 }}>
+                <form className={styles.formulario} onSubmit={HandleSubmit}>
+                    <input className={styles.input} type="text" placeholder='Titulo:' name='tittle'/>
+                    <input className={styles.input} type="text" placeholder='Texto:' name='text'/>
+                    <div className={styles.botonesFormulario}>
+                        <input className={styles.enviar} type="submit" value={"Enviar"}/>
+                        <button className={styles.eliminar} onClick={HandleDelete} >Eliminar</button>
+                    </div>
                 </form>  
-                    <Button onClick={handleClose}>Cancelar</Button>
+                    <Button 
+                        className={styles.buttonCancelar}
+                        size="medium"
+                        variant="filled"
+                        onClick={handleClose}>
+                        Cancelar
+                    </Button>
                 </Box>
             </Modal>
         </React.Fragment>
-
     );
 };
 

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Logeado } from '../../context/Logeado';
+import style from './nav.module.css';
 
 const pages = ['Inicio', 'Posteos', 'Crear Posteo'];
 const settings = ['Logout'];
@@ -61,8 +62,8 @@ function Nav() {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="sm">
+    <AppBar className={style.nav} position="static">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -100,9 +101,7 @@ function Nav() {
               ))}
             </Menu>
           </Box>
-          
-            <>
-              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {
                   pages.map((page) => (
                     <Button
@@ -114,9 +113,8 @@ function Nav() {
                     </Button>
                   ))
                 }
-              </Box>
-
-              <Box sx={{ flexGrow: 0 }}>
+          </Box>
+          <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -144,8 +142,7 @@ function Nav() {
                     </MenuItem>
                   ))}
                 </Menu>
-              </Box>
-          </>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>

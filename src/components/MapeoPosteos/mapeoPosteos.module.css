@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+
+    .titulo{
+        font-size: clamp(1rem, 2rem, 3rem) !important;
+    }
+    .autor{
+        font-size: clamp(1rem, 1rem, 1.2rem) !important;
+    }
+    .button{
+        color:rgb(116, 116, 226);
+        background-color: rgb(220, 213, 213);
+    }
+    .button:hover{
+        cursor: pointer;
+        margin-left: 5px;
+        transform:scale(1.1);
+    }
+}

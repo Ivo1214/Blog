@@ -1,0 +1,21 @@
+.container{
+    .titulo{
+        font-size: clamp(1rem, 2rem, 3rem) !important;
+        text-align: center;
+    }
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+        align-items: center;
+
+        .entrar{
+            color:#19a919;
+        }
+        .entrar:hover{
+            cursor: pointer;
+            margin-left: 5px;
+            transform:scale(1.1);
+        }
+    }
+}

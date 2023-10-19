@@ -1,0 +1,19 @@
+.modal{
+    width: clamp(170px, 33vw, 50vw) !important;
+}
+
+.titulo{
+    font-size: clamp(1rem, 2.5rem, 3rem) !important;
+}
+.texto{
+    font-size: clamp(1rem, 1rem, 1.2rem) !important;
+}
+.button{
+    color:rgb(116, 116, 226);
+    background-color: rgb(220, 213, 213);
+}
+.button:hover{
+    cursor: pointer;
+    margin-left: 5px;
+    transform:scale(1.1);
+}

@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+    padding: 0 40px 0 40px;
+
+    .titulo{
+        font-size: clamp(1rem, 2rem, 3rem) !important;
+        text-align: center;
+    }
+    .formulario{
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+        align-items: center;
+
+        .cargar{
+            color:#19a919;
+        }
+        .cargar:hover{
+            cursor: pointer;
+            margin-left: 5px;
+            transform:scale(1.1);
+        }
+    }
+}
