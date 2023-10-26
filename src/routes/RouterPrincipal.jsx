@@ -18,12 +18,12 @@ const RouterPrincipal = () => {
         <BrowserRouter>
             <Nav></Nav>
             <Routes>
-                <Route path='/' element={<RutaProtegida element={<Home />} isAuth={currentUser.auth} />}/>
-                <Route path='/posteos' element={<RutaProtegida element={<ListaPosteos />} isAuth={currentUser.auth} />}>
-                    <Route path='/posteos/:usuario/detail/:id' element={<RutaProtegida element={<LeerPosteo />} isAuth={currentUser.auth} />}/>
+                <Route path={"/"} element={<RutaProtegida element={<Home />} isAuth={currentUser.auth} />}/>
+                <Route path={"/posteos"} element={<RutaProtegida element={<ListaPosteos />} isAuth={currentUser.auth} />}>
+                    <Route path={"/posteos/:usuario/detail/:id"} element={<RutaProtegida element={<LeerPosteo />} isAuth={currentUser.auth} />}/>
                 </Route>
-                <Route path='/crear' element={<RutaProtegida element={<CrearPosteo />} isAuth={currentUser.auth} />} />
-                <Route path='/login' element={<Login></Login>}/>
+                <Route path={"/crear"} element={<RutaProtegida element={<CrearPosteo />} isAuth={currentUser.auth} />} />
+                <Route path={"/login"} element={<Login></Login>}/>
                 {/* <Route path='' element={<></>}/> */}
             </Routes>
         </BrowserRouter>
